@@ -39,7 +39,7 @@ public class Hangman {
 		return this.surnames;
 	}
 
-	public void setSurnames(String[] surnmes) {
+	public void setSurnames(String[] surnames) {
 		this.surnames=surnames;
 	}
 	public void printSurname() {
