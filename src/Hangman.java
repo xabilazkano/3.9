@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 import java.util.Random;
 
 public class Hangman {
@@ -8,7 +8,7 @@ public class Hangman {
 	private char[] guessedletters = new char[3];
 	private String[] surnames ={ "lazkano", "intxausti", "artola", "alberdi", "lekubide", "ortiz", "gonzalez" };
 
-	Scanner sc = new Scanner(System.in);
+	
 
 	public String getSurname() {
 		return this.surname;
