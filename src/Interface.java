@@ -17,8 +17,9 @@ public class Interface {
 		while (playAgain == true) {
 
 			int flag = 0;
+			hang.printSurname();
 			while (flag < 3) {
-				hang.printSurname();
+				
 				System.out.println();
 				System.out.println("Enter a letter");
 				if (!sc.hasNextInt()) {
@@ -29,9 +30,11 @@ public class Interface {
 					if (letterArray.length == 1) {
 						// Check that the player has entered just a character
 						if (letterArray[0].length() == 1) {
-
+						
 							hang.enterletter(letterArray[0].charAt(0));
 							flag++;
+							hang.printSurname();
+							System.out.println();
 
 						}
 						// If the player entered more than one characters, ask him/her to enter just one

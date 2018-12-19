@@ -6,6 +6,7 @@ public class Hangman {
 	private String surname;
 	private int tries = 0;
 	private char[] guessedletters = new char[3];
+	private String[] surnames ={ "lazkano", "intxausti", "artola", "alberdi", "lekubide", "ortiz", "gonzalez" };
 
 	Scanner sc = new Scanner(System.in);
 
@@ -14,7 +15,7 @@ public class Hangman {
 	}
 
 	public void setSurname() {
-		String[] surnames = { "lazkano", "intxausti", "artola", "alberdi", "lekubide", "ortiz", "gonzalez" };
+		
 		this.surname = surnames[new Random().nextInt(surnames.length)];
 	}
 
@@ -33,7 +34,14 @@ public class Hangman {
 	public void setTries(int tries) {
 		this.tries = tries;
 	}
+	
+	public String[] getSurnames() {
+		return this.surnames;
+	}
 
+	public void setSurnames(String[] surnmes) {
+		this.surnames=surnames;
+	}
 	public void printSurname() {
 		for (int i = 0; i < surname.length(); i++) {
 			boolean found = false;
