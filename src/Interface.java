@@ -5,7 +5,7 @@ public class Interface {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Hangman hang = new Hangman();
-		hang.setSurname();
+		hang.selectSurname();
 
 		Scanner sc = new Scanner(System.in);
 		// Print the games' description
@@ -17,7 +17,9 @@ public class Interface {
 		while (playAgain == true) {
 
 			int flag = 0;
-			hang.printSurname();
+			
+			hang.printSelectedSurname();
+			
 			while (flag < 3) {
 				
 				System.out.println();
@@ -31,9 +33,9 @@ public class Interface {
 						// Check that the player has entered just a character
 						if (letterArray[0].length() == 1) {
 						
-							hang.enterletter(letterArray[0].charAt(0));
+							hang.checkLetter(letterArray[0].charAt(0));
 							flag++;
-							hang.printSurname();
+							hang.printSelectedSurname();
 							System.out.println();
 
 						}
@@ -56,25 +58,29 @@ public class Interface {
 			String playerWord = sc.nextLine().toLowerCase();
 			String[] playerWordArray = playerWord.split(" ");
 			if (playerWordArray.length == 1) {
-				hang.playerWord(playerWord);
+				if (hang.playerWord(playerWord)) {
+					System.out.println("Congratulations the surname was "+ hang.getSurname());
+				} else {
+					System.out.println("Sorry, the surname was "+ hang.getSurname());
+				}
 			} else {
 				System.out.println("Enter just one word");
 			}
 
 			System.out.println("Do you want to play again? ");
-			boolean play = true;
-			while (play) {
+			boolean incorrectResponse = true;
+			while (incorrectResponse) {
 				String choose = sc.next();
 				if (choose.equals("yes")) {
-					hang.setSurname();
+					hang.selectSurname();
 					char[] guessedletters = new char[3];
-					hang.setGuessed(guessedletters);
+					hang.setGuessedLetters(guessedletters);
 					hang.setTries(0);
-					play=false;
+					incorrectResponse=false;
 				} else if (choose.equals("no")) {
 					System.out.println("Bye!");
 					playAgain = false;
-					play=false;
+					incorrectResponse=false;
 				} else {
 					System.out.println("Enter a valid option (yes/no)");
 				}
