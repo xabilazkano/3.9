@@ -1,12 +1,13 @@
 import java.util.Scanner;
+import com.zubiri.Hangman;
 
 public class Interface {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Hangman hang = new Hangman();
-		hang.selectSurname();
-
+		String surname =hang.selectSurname();
+		hang.setSurname(surname);
 		Scanner sc = new Scanner(System.in);
 		// Print the games' description
 		System.out.println("Welcome to the famous HANGMAN game.");
@@ -17,11 +18,11 @@ public class Interface {
 		while (playAgain == true) {
 
 			int flag = 0;
-			
+
 			hang.printSelectedSurname();
-			
+
 			while (flag < 3) {
-				
+
 				System.out.println();
 				System.out.println("Enter a letter");
 				if (!sc.hasNextInt()) {
@@ -32,7 +33,7 @@ public class Interface {
 					if (letterArray.length == 1) {
 						// Check that the player has entered just a character
 						if (letterArray[0].length() == 1) {
-						
+
 							hang.checkLetter(letterArray[0].charAt(0));
 							flag++;
 							hang.printSelectedSurname();
@@ -59,9 +60,9 @@ public class Interface {
 			String[] playerWordArray = playerWord.split(" ");
 			if (playerWordArray.length == 1) {
 				if (hang.playerWord(playerWord)) {
-					System.out.println("Congratulations the surname was "+ hang.getSurname());
+					System.out.println("Congratulations the surname was " + hang.getSurname());
 				} else {
-					System.out.println("Sorry, the surname was "+ hang.getSurname());
+					System.out.println("Sorry, the surname was " + hang.getSurname());
 				}
 			} else {
 				System.out.println("Enter just one word");
@@ -76,11 +77,11 @@ public class Interface {
 					char[] guessedletters = new char[3];
 					hang.setGuessedLetters(guessedletters);
 					hang.setTries(0);
-					incorrectResponse=false;
+					incorrectResponse = false;
 				} else if (choose.equals("no")) {
 					System.out.println("Bye!");
 					playAgain = false;
-					incorrectResponse=false;
+					incorrectResponse = false;
 				} else {
 					System.out.println("Enter a valid option (yes/no)");
 				}
@@ -88,5 +89,5 @@ public class Interface {
 		}
 
 	}
-
+  
 }
