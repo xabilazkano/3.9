@@ -4,49 +4,91 @@ import java.util.Random;
 
 public class Hangman {
 
-	private String surname="";
+	private String surname = "";
 	private int tries = 0;
 	private char[] guessedLetters = new char[3];
-	private String[] surnames ={ "lazkano", "intxausti", "artola", "alberdi", "lekubide", "ortiz", "gonzalez" };
-
+	private String[] surnames = { "lazkano", "intxausti", "artola", "alberdi", "lekubide", "ortiz", "gonzalez" };
 	
-    public String getSurname() {
+	/**
+	 * Gets the surname
+	 * @return 
+	 */
+
+	public String getSurname() {
 		return this.surname;
 	}
+	
+	/**
+	 * Sets the surname
+	 * @param _surname
+	 */
 
 	public void setSurname(String _surname) {
 		this.surname = _surname;
 	}
-	
-	public String selectSurname() {		
-		//this.surname = surnames[new Random().nextInt(surnames.length)];
-		return surnames[new Random().nextInt(surnames.length)];
-	}
 
+	
+
+	/**
+	 * Gets the guessed letters array
+	 * @return
+	 */
 	public char[] getguessedLetters() {
 		return this.guessedLetters;
 	}
-	
+
+	/**
+	 * Sets the guessed letters array
+	 * @param array
+	 */
 	public void setGuessedLetters(char[] array) {
-		this.guessedLetters=array;
+		this.guessedLetters = array;
 	}
 
+	/**
+	 * Gets the number of tries
+	 * @return
+	 */
 	public int getTries() {
 		return tries;
 	}
-
+	
+	/**
+	 * Sets the number of tries
+	 * @param tries
+	 */
 	public void setTries(int tries) {
 		this.tries = tries;
 	}
-	
+
+	/**
+	 * Gets the surnames array
+	 * @return
+	 */
 	public String[] getSurnames() {
 		return this.surnames;
 	}
 
+	/**
+	 * Sets the surnames array
+	 * @param surnames
+	 */
 	public void setSurnames(String[] surnames) {
-		this.surnames=surnames;
+		this.surnames = surnames;
+	}
+
+	/**
+	 * Selects a surname from the array
+	 * @return returns the surname
+	 */
+	public String selectSurname() {
+		
+		return surnames[new Random().nextInt(surnames.length)];
 	}
 	
+	/**
+	 * Prints the selected surname using underscores for the letters that we haven't used
+	 */
 	public void printSelectedSurname() {
 		for (int i = 0; i < surname.length(); i++) {
 			boolean found = false;
@@ -62,6 +104,10 @@ public class Hangman {
 		}
 	}
 
+	/**
+	 * It checks if the entered letter is in the surname or not
+	 * @param letter 
+	 */
 	public void checkLetter(char letter) {
 
 		for (int i = 0; i < surname.length(); i++) {
@@ -87,18 +133,21 @@ public class Hangman {
 		}
 
 	}
-	
+
+	/**
+	 * It controls if we have guessed the surname
+	 * @param word The surname
+	 * @return It will return true or false
+	 */
 	public boolean playerWord(String word) {
 		boolean result = false;
-		if(this.surname.equals(word)) {
+		if (this.surname.equals(word)) {
 			return true;
-			//System.out.println("Congratulations the surname was "+ this.surname);
+			
 		}
-		return result; 
-		//else {
-		//	System.out.println("Sorry, the surname was "+ this.surname);
-		//}
+		return result;
+	
+		
 	}
 
 }
-

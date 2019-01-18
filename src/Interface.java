@@ -6,7 +6,7 @@ public class Interface {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Hangman hang = new Hangman();
-		String surname =hang.selectSurname();
+		String surname = hang.selectSurname();
 		hang.setSurname(surname);
 		Scanner sc = new Scanner(System.in);
 		// Print the games' description
@@ -73,7 +73,8 @@ public class Interface {
 			while (incorrectResponse) {
 				String choose = sc.next();
 				if (choose.equals("yes")) {
-					hang.selectSurname();
+					surname = hang.selectSurname();
+					hang.setSurname(surname);
 					char[] guessedletters = new char[3];
 					hang.setGuessedLetters(guessedletters);
 					hang.setTries(0);
@@ -89,5 +90,5 @@ public class Interface {
 		}
 
 	}
-  
+
 }
